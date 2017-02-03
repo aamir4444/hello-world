@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<body>
+<form name='_form'>
+<input type=text value="" name=DefectName />
+<input type=button value="Get" onclick="_form.DefectName.value=getCustomObjectField();" />
+</form>
+
+
+<script type="text/javascript">
+
+
+	
+	function getCustomObjectField()
+	{
+	var co = window.external.GetCustomObject('DMS', 'JobCardOrder');
+	// Get the Custom Object instance
+    if (co == null)
+	{
+	alert("No Custom Object " + DMS + "$" + JobCardOrder + " found");
+	}
+			
+	// Use the standard GetCustomFieldByName call to get the field value.
+	return co.GetCustomFieldByName('PartsTotal');
+	}
+	
+	
+	
+	
+</script>
+</body>
+</html>
